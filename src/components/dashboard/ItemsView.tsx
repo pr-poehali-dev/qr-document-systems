@@ -127,7 +127,7 @@ const ItemsView = ({ user }: ItemsViewProps) => {
     setNewItem({ ...newItem, qrCode: `QR-${qrNumber}` });
   };
 
-  const canEdit = user.role === 'admin' || user.role === 'creator' || user.role === 'nikitovsky';
+  const canEdit = user.role === 'headCashier' || user.role === 'admin' || user.role === 'creator' || user.role === 'nikitovsky';
   const canReturn = user.role !== 'client';
 
   return (

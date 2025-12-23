@@ -21,6 +21,7 @@ const Dashboard = ({ user, onLogout }: DashboardProps) => {
     const names = {
       client: 'Клиент',
       cashier: 'Кассир',
+      headCashier: 'Главный кассир',
       admin: 'Администратор',
       creator: 'Создатель',
       nikitovsky: 'Никитовский',
@@ -30,7 +31,7 @@ const Dashboard = ({ user, onLogout }: DashboardProps) => {
 
   const canAccess = (feature: string) => {
     const permissions: Record<string, string[]> = {
-      management: ['admin', 'creator', 'nikitovsky'],
+      management: ['headCashier', 'admin', 'creator', 'nikitovsky'],
       archive: ['creator', 'nikitovsky'],
       fullAccess: ['creator', 'nikitovsky'],
     };

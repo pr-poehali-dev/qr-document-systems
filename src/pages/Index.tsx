@@ -2,7 +2,7 @@ import { useState } from 'react';
 import LoginPage from '@/components/LoginPage';
 import Dashboard from '@/components/Dashboard';
 
-export type UserRole = 'client' | 'cashier' | 'admin' | 'creator' | 'nikitovsky';
+export type UserRole = 'client' | 'cashier' | 'headCashier' | 'admin' | 'creator' | 'nikitovsky';
 
 export interface User {
   role: UserRole;

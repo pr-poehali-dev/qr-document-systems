@@ -43,6 +43,7 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
 
   const rolePasswords: Record<Exclude<UserRole, 'client'>, string> = {
     cashier: '25',
+    headCashier: '2525',
     admin: '2025',
     creator: '202505',
     nikitovsky: '20252025',
@@ -51,6 +52,7 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
   const roleNames = {
     client: 'Покупатель',
     cashier: 'Кассир',
+    headCashier: 'Главный кассир',
     admin: 'Администратор',
     creator: 'Создатель',
     nikitovsky: 'Никитовский',
@@ -211,6 +213,25 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
                 variant="outline"
                 size="lg"
                 className="h-auto py-4 justify-start hover:bg-primary hover:text-white transition-all"
+                onClick={() => handleRoleSelect('headCashier')}
+                disabled={isBlocked}
+              >
+                <div className="flex items-center gap-3 w-full">
+                  <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="BadgeCheck" size={24} className="text-teal-600" />
+                  </div>
+                  <div className="text-left flex-1">
+                    <p className="font-semibold text-base">Главный кассир</p>
+                    <p className="text-xs text-gray-500">Кассир + создание клиентов</p>
+                  </div>
+                  <Icon name="ChevronRight" size={20} />
+                </div>
+              </Button>
+
+              <Button
+                variant="outline"
+                size="lg"
+                className="h-auto py-4 justify-start hover:bg-primary hover:text-white transition-all"
                 onClick={() => handleRoleSelect('admin')}
                 disabled={isBlocked}
               >
@@ -280,6 +301,7 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
                 name={
                   selectedRole === 'client' ? 'User' :
                   selectedRole === 'cashier' ? 'ShoppingCart' :
+                  selectedRole === 'headCashier' ? 'BadgeCheck' :
                   selectedRole === 'admin' ? 'Shield' :
                   selectedRole === 'creator' ? 'Crown' :
                   'Sparkles'
